@@ -4,7 +4,7 @@ import "./App.css";
 
 import * as THREE from "three";
 import { createRoot } from "react-dom/client";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Canvas, useFrame, ThreeElements, Camera } from "@react-three/fiber";
 import { OrbitControls, PerspectiveCamera, useCamera } from "@react-three/drei";
 
@@ -19,14 +19,21 @@ function App() {
   //  const obj = useLoader(FBXLoader, "/Bierun001.fbx");
   // const obj = useLoader(FBXLoader, "/house.fbx");
   const obj = useLoader(FBXLoader, "/house.fbx");
+  const cameraRef = useRef<any>(null);
+  
+
+  const handleMouseDown = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    // Handle mouse down event here
+    console.log(cameraRef.current?.position);
+  };
 
   return (
     <div className="main">
-      
       <Canvas
         shadows
+        onMouseDown={handleMouseDown}
       >
-        <PerspectiveCamera makeDefault position={[0, 0, 500]} />
+        <PerspectiveCamera ref={cameraRef} makeDefault position={[0, 0, 500]} />
         <ambientLight intensity={1} />
         <primitive object={obj} />
         <OrbitControls />

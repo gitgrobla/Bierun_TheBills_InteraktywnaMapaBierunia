@@ -17,8 +17,9 @@ import {
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 import { useLoader } from "@react-three/fiber";
 import * as THREE from "three";
-import "./App.css";
 import { AxesHelper, GridHelper } from "three";
+
+import styles from "./App.module.scss";
 
 type Props = {
   x: number;
@@ -29,11 +30,13 @@ type Props = {
 
 
 export default function ModelViewer(props: Props) {
+  const [coords,setCoords] = useState({x: props.x, y: props.y,z: props.z});
+  
   const obj = useLoader(FBXLoader, props.fbxPath);
   const cameraRef= useRef<THREE.PerspectiveCamera>(null!);
   return (
     <>
-      <div className="main">
+      <div className={styles.main}>
         <Canvas shadows>
           <PerspectiveCamera near={10} far={10000} />
           <ambientLight intensity={10} />
@@ -44,8 +47,8 @@ export default function ModelViewer(props: Props) {
             <primitive object={new AxesHelper(500)} />
           </mesh>
           <MapControls
-          target={new THREE.Vector3(props.x, props.y, props.z)}
-
+          target={new THREE.Vector3(coords.x, coords.y, coords.z)}
+    
           />
         </Canvas>
       </div>

@@ -7,6 +7,7 @@ $sidebar_height: calc(100vh - $navbar_height);
   width: 0vw;
   //   width: 25vw;
   position: absolute;
+  top: $navbar_height;
   overflow: auto;
   z-index: 3;
   background-color: $background;

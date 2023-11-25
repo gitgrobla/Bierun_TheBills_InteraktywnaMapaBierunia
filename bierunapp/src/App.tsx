@@ -43,17 +43,34 @@ function App() {
 
   const [td, settd] = useState(false);
 
+  const teleportCamera = () => {
+    console.log(cameraRef.current);
+    cameraRef.current?.position.set(-1000, 10, 10);
+    cameraRef.current?.updateMatrixWorld();
+    setCoords({ x: -1000, y: 10, z: 0 });
+  };
+
+  const handleToggleTD = () => {
+    if (td) {
+      settd(false);
+    } else {
+      settd(true);
+    }
+  };
+
   return (
     <div className={styles.main}>
       <TopBar />
       <Sidebar
         setTD={settd}
+        handleToggleID={handleToggleTD}
         TD={td}
         unselectInvestment={unselectInvestment}
         selectedInvestment={selectedInvestment}
         isInvestmentSelected={isInvestmentSelected}
       />
-      <div className={styles.map_container}>
+
+      <div className={td ? styles.non : styles.map_container}>
         <Map
           mapPosition={mapPosition}
           setSelectedInvestment={setSelectedInvestment}
@@ -61,16 +78,34 @@ function App() {
           investments={investments}
         />
       </div>
-      <div
+
+      <div className={styles.canvas_container}>
+        <ModelViewer
+          teleportCamera={teleportCamera}
+          ref={cameraRef}
+          fbxPath="/bierun008.fbx"
+          {...coords}
+        />
+      </div>
+
+      {/* <button
         style={{
           position: "absolute",
+          bottom: "0",
+          right: "0",
           zIndex: 100,
         }}
+        onClick={teleportCamera}
       >
-        <button onClick={() => setCoords({ x: 0, y: 1000, z: 0 })}>cipa</button>
-      </div>
-      {/* <div className={styles.canvas_container}>
-        <ModelViewer fbxPath="/bierun008.fbx" {...coords} />
+        sdasdasda
+      </button>
+      <div className={styles.canvas_container}>
+        <ModelViewer
+          teleportCamera={teleportCamera}
+          ref={cameraRef}
+          fbxPath="/bierun008.fbx"
+          {...coords}
+        />
       </div> */}
     </div>
   );

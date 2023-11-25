@@ -1,0 +1,82 @@
+@import "../../variables.scss";
+
+
+
+.topbar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100dvw;
+    height: $navbar_height;
+    background-color: $background;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    z-index: 200;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    size: $font-size-large;
+
+    
+
+    .center{
+        display : flex;
+        width: 33%;
+        justify-content: space-around;
+        align-items: end;
+        height: 100%;
+        button, button.selected{
+            padding-bottom: 20px;
+            outline: none;
+            border: none;
+            background-color: $background;
+            flex: 1;
+            
+            
+        }
+        
+        button:hover, button.sele{
+            color: $accent;
+            padding-bottom: 17px;
+            border-bottom: 3px solid $accent;
+        }
+        
+        button.selected{
+            color:red;
+            font-weight: bold;
+            padding-bottom: 17px;
+            border-bottom: 3px solid red;
+        }
+    }
+
+    .left{
+        display : flex;
+        justify-content: flex-start;
+        width:33%;
+        align-items: center;
+        font-weight: bolder;
+        img{
+            width: 30px;
+            height: 25px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+    }
+
+    .right{
+        display : flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 33%;
+
+        
+
+        :nth-child(2){
+        }
+
+        :nth-child(3){
+        }
+    }
+
+
+}
+

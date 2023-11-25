@@ -27,3 +27,14 @@ body,
 .leaflet-control {
   margin-right: 10px;
 }
+
+
+*{
+  font-family: Montserrat !important;
+}
+
+@font-face {
+  font-family: 'MyFont';
+  src: local('MyFont'), url() format('woff');
+  
+}

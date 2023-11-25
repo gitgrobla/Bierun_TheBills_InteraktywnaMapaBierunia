@@ -6,7 +6,12 @@ import * as THREE from "three";
 import { createRoot } from "react-dom/client";
 import React, { useEffect, useRef, useState } from "react";
 import { Canvas, useFrame, ThreeElements, Camera } from "@react-three/fiber";
-import { OrbitControls, PerspectiveCamera, useCamera } from "@react-three/drei";
+import {
+  FlyControls,
+  OrbitControls,
+  PerspectiveCamera,
+  useCamera,
+} from "@react-three/drei";
 
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";

@@ -5,6 +5,7 @@ import {
   WMSTileLayer,
   Marker,
 } from "react-leaflet";
+import {Icon} from 'leaflet';
 import { useMap, useMapEvents } from "react-leaflet/hooks";
 import styles from "./Map.module.scss";
 // import { transformCoordinates } from "../../../utils/Utils";
@@ -39,6 +40,12 @@ import {
 // import PushPinIcon from "@mui/icons-material/PushPin";
 // import marker_icon from "../../../assets/marker_icon.png";
 // import Searchbar from "./Searchbar";
+const redIcon = new Icon({
+  iconUrl: "/svg/Pin.svg",
+  iconSize: [32, 32],
+  iconAnchor: [16, 32],
+});
+
 
 function Map({
   investments,
@@ -89,6 +96,8 @@ function Map({
   //       mapRef.current.setMaxBounds(null);
   //     }
   //   }, [parcelSelected]);
+
+  
 
   return (
     <div className={styles.mapContainer}>
@@ -271,7 +280,7 @@ function MapComponent({
         })} */}
 
       {investments.map((investment) => (
-        <Marker position={investment.position} />
+        <Marker icon={redIcon} position={investment.position}  />
       ))}
     </>
   );

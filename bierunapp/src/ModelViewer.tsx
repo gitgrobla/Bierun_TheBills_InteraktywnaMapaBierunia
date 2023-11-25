@@ -1,4 +1,10 @@
-import React, { useState, useRef, Suspense, useEffect } from "react";
+import React, {
+  useState,
+  useRef,
+  Suspense,
+  useEffect,
+  forwardRef,
+} from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import {
   Box,
@@ -26,23 +32,30 @@ type Props = {
   y: number;
   z: number;
   fbxPath: string;
+  teleportCamera: () => void;
 };
 
-export default function ModelViewer(props: Props) {
-  const { x, y, z } = props;
+const ModelViewer = forwardRef((props: Props, ref: any) => {
+  const { x, y, z, teleportCamera } = props;
+
+  useEffect(() => {
+    teleportCamera();
+  }, [ref.current]);
 
   const obj = useLoader(FBXLoader, props.fbxPath);
-  const cameraRef = useRef<THREE.PerspectiveCamera>(null!);
+  console.log(ref);
   return (
     <Canvas shadows>
-      <PerspectiveCamera near={10} far={100000} />
+      <PerspectiveCamera makeDefault ref={ref} near={0.1} far={100000} />
       <ambientLight intensity={10} />
       <mesh>
         <primitive object={obj} />
         <primitive object={new GridHelper(1000, 100)} />
         <primitive object={new AxesHelper(500)} />
       </mesh>
-      <MapControls target={new THREE.Vector3(x, y, z)} />
+      <MapControls makeDefault target={new THREE.Vector3(x, y, z)} />
     </Canvas>
   );
-}
+});
+
+export default ModelViewer;

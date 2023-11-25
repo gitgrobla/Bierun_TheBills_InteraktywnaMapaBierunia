@@ -9,12 +9,14 @@ function Sidebar({
   unselectInvestment,
   setTD,
   TD,
+  handleToggleID,
 }: {
   isInvestmentSelected: boolean;
   selectedInvestment: Investment | null;
   unselectInvestment: () => void;
   setTD: React.Dispatch<React.SetStateAction<boolean>>;
   TD: boolean;
+  handleToggleID: () => void;
 }) {
   return (
     <div
@@ -24,7 +26,7 @@ function Sidebar({
           : classnames(styles.sidebar, styles.sidebar_animaion)
       }
     >
-      <button onClick={() => setTD(!TD)}>{!TD ? "[]" : "X"}</button>
+      <button onClick={handleToggleID}>{!TD ? "[]" : "X"}</button>
       <button onClick={unselectInvestment}>X</button>
     </div>
   );

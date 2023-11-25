@@ -29,10 +29,18 @@ $context_menu_width: calc(4*$context_menu_height);
         border-left: 3px solid $primary;
         size: $font-size-small;
         display: flex;
-        justify-content: center;
-        align-items: flex-end;
-        padding-bottom: 10px;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        padding-bottom: 5px;
+        padding-top:10px;
         text-align: center;
+
+        img{
+
+            width: 30px;
+            height: 30px;
+        }
 
         
     }
@@ -62,6 +70,11 @@ $circle_width: 30px;
     background-color: $secondary;
     border: 3px solid $primary;
     border-radius: 50%;
+
+    img{
+        position: relative;
+        top: 20%;
+    }
 }
 
 .hideCircle.hidden{

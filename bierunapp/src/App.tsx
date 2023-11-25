@@ -1,28 +1,13 @@
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import styles from "./App.module.scss";
 
-import * as THREE from "three";
-import { createRoot } from "react-dom/client";
 import React, { useEffect, useRef, useState } from "react";
-import { Canvas, useFrame, ThreeElements, Camera } from "@react-three/fiber";
-import {
-  FlyControls,
-  OrbitControls,
-  PerspectiveCamera,
-  useCamera,
-} from "@react-three/drei";
-
-import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
-import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
-import { useLoader } from "@react-three/fiber";
 
 import Map from "./components/Map/Map";
 import Box from "./Box";
 import { investments, Investment } from "./datasets/investments";
 import Sidebar from "./components/Sidebar/Sidebar";
 import ModelViewer from "./ModelViewer";
-import classnames from "classnames";
+import TopBar from "./components/TopBar/TopBar.tsx";
 
 interface Coords {
   x: number;
@@ -84,6 +69,7 @@ function App() {
 
   return (
     <div className={styles.main}>
+      <TopBar />
       <Sidebar
         setTD={settd}
         handleToggleID={handleToggleTD}

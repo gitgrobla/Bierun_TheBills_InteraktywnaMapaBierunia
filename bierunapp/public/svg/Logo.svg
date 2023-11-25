@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40.53" height="41.459" viewBox="0 0 40.53 41.459">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #e44044;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <g id="Logo" transform="translate(-16.472 -42.948)">
+    <rect id="Rectangle_8" data-name="Rectangle 8" class="cls-1" width="14.378" height="2.157" transform="translate(17.384 76.376) rotate(25)"/>
+    <rect id="Rectangle_10" data-name="Rectangle 10" class="cls-1" width="14.378" height="2.157" transform="translate(18.41 57.289) rotate(25)"/>
+    <rect id="Rectangle_11" data-name="Rectangle 11" class="cls-1" width="20.934" height="2.157" transform="translate(18.629 57.289) rotate(90)"/>
+    <rect id="Rectangle_12" data-name="Rectangle 12" class="cls-1" width="20.934" height="2.157" transform="translate(31.441 63.473) rotate(90)"/>
+    <rect id="Rectangle_13" data-name="Rectangle 13" class="cls-1" width="14.378" height="2.157" transform="translate(44.304 78.331) rotate(155)"/>
+    <rect id="Rectangle_14" data-name="Rectangle 14" class="cls-1" width="2.326" height="2.157" transform="translate(33.382 64.337) rotate(155)"/>
+    <path id="Subtraction_1" data-name="Subtraction 1" class="cls-1" d="M-2.231-73.066H-4.388v-20.56l.8-.374h1.36v20.932Z" transform="translate(46.536 151.289)"/>
+    <path id="Subtraction_1-2" data-name="Subtraction 1" class="cls-1" d="M-1041.5,181.766h0l-13.03-6.075.912-1.955,12.835,5.986v.461h.023l-.738,1.583Z" transform="translate(1097.754 -116.446)"/>
+    <path id="Subtraction_2" data-name="Subtraction 2" class="cls-1" d="M-1042.652,180.994h-.5l-11.375-5.3.912-1.955,11.786,5.5-.822,1.763Z" transform="translate(1097.754 -97.359)"/>
+    <rect id="Rectangle_19" data-name="Rectangle 19" class="cls-1" width="5.407" height="2.317" transform="translate(43.993 59.389) rotate(155)"/>
+    <rect id="Rectangle_20" data-name="Rectangle 20" class="cls-1" width="30.279" height="2.157" transform="translate(37.333 42.948) rotate(90)"/>
+    <g id="Union_1" data-name="Union 1" transform="translate(39.137 42.985)">
+      <path id="Path_1" data-name="Path 1" class="cls-2" d="M-7-88.217V-99H8.815L.908-93.608l7.908,5.392Z" transform="translate(7 99)"/>
+      <path id="Path_2" data-name="Path 2" class="cls-1" d="M4.155-89.654l-5.8-3.954,5.8-3.954H-5.562v7.908H4.155m4.661,1.438H-7V-99H8.816L.908-93.608Z" transform="translate(7 99)"/>
+    </g>
+    <path id="Subtraction_1-3" data-name="Subtraction 1" class="cls-1" d="M-2.231-73.641H-4.388v-20l.8-.364h1.36v20.357Z" transform="translate(59.233 157.335)"/>
+  </g>
+</svg>

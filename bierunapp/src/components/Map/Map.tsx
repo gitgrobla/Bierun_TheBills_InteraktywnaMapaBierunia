@@ -99,7 +99,7 @@ function Map({
         zoom={15}
         maxZoom={22}
         minZoom={10}
-        scrollWheelZoom={false}
+        scrollWheelZoom={true}
       >
         <MapComponent
           mapRef={mapRef}
@@ -218,7 +218,7 @@ function MapComponent({
         });
       }
       console.log(parcel_data);
-    },
+    }
   });
 
   const map = useMap();

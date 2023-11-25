@@ -14,6 +14,7 @@ html {
   width: 100vw;
   height: 100vh;
   position: absolute;
+  animation: fadeIn 0.1s ease-in-out;
 }
 
 .map_container {
@@ -21,8 +22,18 @@ html {
   height: 100vh;
   position: absolute;
   z-index: 2;
+  animation: fadeIn 0.1s ease-in-out;
 }
 
 .non {
   display: none !important;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

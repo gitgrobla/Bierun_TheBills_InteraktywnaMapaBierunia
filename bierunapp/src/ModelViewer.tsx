@@ -36,20 +36,21 @@ type Props = {
 };
 
 const ModelViewer = forwardRef((props: Props, ref: any) => {
-  const { x, y, z, teleportCamera } = props;
-
-  useEffect(() => {
-    teleportCamera();
-  }, [ref.current]);
+  const { x, y, z } = props;
 
   const obj = useLoader(FBXLoader, props.fbxPath);
   console.log(ref);
   return (
     <Canvas shadows>
-      <PerspectiveCamera makeDefault ref={ref} near={0.1} far={100000} />
+      <PerspectiveCamera makeDefault ref={ref} near={0.1} far={10000} />
       <ambientLight intensity={10} />
       <mesh>
-        <primitive object={obj} />
+        <primitive
+          onClick={(e: any) => {
+            console.log(e);
+          }}
+          object={obj}
+        />
         <primitive object={new GridHelper(1000, 100)} />
         <primitive object={new AxesHelper(500)} />
       </mesh>

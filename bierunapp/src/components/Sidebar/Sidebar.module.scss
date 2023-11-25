@@ -1,0 +1,29 @@
+@import "../../variables.scss";
+
+$sidebar_height: calc(100vh - $navbar_height);
+
+.sidebar {
+  height: $sidebar_height;
+  width: 0vw;
+  //   width: 25vw;
+  position: absolute;
+  overflow: auto;
+  z-index: 3;
+  background-color: $background;
+  color: $text;
+}
+
+.sidebar_animaion {
+  animation-name: sidebarAnimation;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes sidebarAnimation {
+  from {
+    width: 0vw;
+  }
+  to {
+    width: 25vw;
+  }
+}

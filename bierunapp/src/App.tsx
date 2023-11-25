@@ -20,8 +20,8 @@ import Sidebar from "./components/Sidebar/Sidebar";
 function App() {
   // const obj = useLoader(OBJLoader, "/Bierun003.obj");
   //  const obj = useLoader(FBXLoader, "/Bierun001.fbx");
-  // const obj = useLoader(FBXLoader, "/house.fbx");
-  const obj = useLoader(FBXLoader, "/house.fbx");
+  const guideline = useLoader(FBXLoader, "/guidelines2.fbx");
+  const obj = useLoader(FBXLoader, "/bierun008.fbx");
   const cameraRef = useRef<any>(null);
   const [mapPosition, setMapPosition] = useState([
     50.09324438901613, 19.09179381393147,
@@ -47,7 +47,7 @@ function App() {
 
   return (
     <div className={styles.main}>
-      <Sidebar
+      {/* <Sidebar
         setTD={settd}
         TD={td}
         unselectInvestment={unselectInvestment}
@@ -61,16 +61,19 @@ function App() {
           setMapPosition={setMapPosition}
           investments={investments}
         />
-      </div>
+      </div> */}
       <div className={styles.canvas_container}>
         <Canvas shadows onMouseDown={handleMouseDown}>
           <PerspectiveCamera
             ref={cameraRef}
             makeDefault
             position={[0, 0, 500]}
+            near={0.1}
+            far={10000}
           />
           <ambientLight intensity={1} />
           <primitive object={obj} />
+          <primitive object={guideline} />
           <OrbitControls />
         </Canvas>
       </div>

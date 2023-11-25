@@ -17,11 +17,14 @@ interface Coords {
 
 function App() {
   const cameraRef = useRef<any>(null);
+  const mapRef = useRef<any>(null);
   const [mapPosition, setMapPosition] = useState([
     50.09324438901613, 19.09179381393147,
   ]);
 
   const [coords, setCoords] = useState<Coords>({ x: 0, y: 0, z: 0 });
+
+  const [sidebar, setSidebar] = useState(true);
 
   const [selectedInvestment, setSelectedInvestment] =
     useState<Investment | null>(null);
@@ -33,11 +36,14 @@ function App() {
     setSelectedInvestment(null);
   };
 
-  const handleMouseDown = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
-    // Handle mouse down event here
-    console.log(cameraRef.current?.position);
+  const handleInvestmentSelection = (investment: Investment) => {
+    console.log("myref", mapRef);
+    if (mapRef.current) {
+      mapRef.current.setView(investment.position, 19, {
+        animate: true,
+      });
+    }
+    setSelectedInvestment(investment);
   };
 
   const [td, settd] = useState(false);
@@ -73,6 +79,9 @@ function App() {
       <Sidebar
         setTD={settd}
         handleToggleID={handleToggleTD}
+        sidebar={sidebar}
+        setSidebar={setSidebar}
+        handleInvestmentSelection={handleInvestmentSelection}
         TD={td}
         unselectInvestment={unselectInvestment}
         selectedInvestment={selectedInvestment}
@@ -81,6 +90,8 @@ function App() {
 
       <div className={td ? styles.non : styles.map_container}>
         <Map
+          ref={mapRef}
+          handleInvestmentSelection={handleInvestmentSelection}
           mapPosition={mapPosition}
           setSelectedInvestment={setSelectedInvestment}
           setMapPosition={setMapPosition}

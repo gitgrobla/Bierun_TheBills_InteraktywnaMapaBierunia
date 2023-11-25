@@ -4,8 +4,23 @@ $accent: #778283;
 $background: #fafafa;
 $text: #1b1818;
 $hint-color: #bababa;
+$royal_blue: #0b61a5;
 $navbar_height: 60px;
 $font-size-small: 10px;
 $font-size-medium: 20px;
 $font-size-large: 24px;
 $border-radius: 15px;
+
+@mixin universal-box-shadow(
+  $blur: 20px,
+  $spread: 0px,
+  $alpha: 1,
+  $inset: false
+) {
+  $shadow_grey: rgba(40, 40, 40, $alpha);
+  $inset-style: if($inset, "inset", "");
+
+  -webkit-box-shadow: #{$inset-style} 0px 0px $blur $spread $shadow_grey;
+  -moz-box-shadow: #{$inset-style} 0px 0px $blur $spread $shadow_grey;
+  box-shadow: #{$inset-style} 0px 0px $blur $spread $shadow_grey;
+}

@@ -9,7 +9,7 @@ import { useMap, useMapEvents } from "react-leaflet/hooks";
 import styles from "./Map.module.scss";
 // import { transformCoordinates } from "../../../utils/Utils";
 import { useDispatch, useSelector } from "react-redux";
-import { useRef } from "react";
+import { useRef, forwardRef } from "react";
 
 import {
   Investment,
@@ -40,25 +40,30 @@ import {
 // import marker_icon from "../../../assets/marker_icon.png";
 // import Searchbar from "./Searchbar";
 
-function Map({
-  investments,
-  mapPosition,
-  setMapPosition,
-  setSelectedInvestment,
-}: {
+interface Props {
   investments: Investment[];
+  handleInvestmentSelection: (investment: Investment) => void;
   mapPosition: number[];
   setMapPosition: React.Dispatch<React.SetStateAction<number[]>>;
   setSelectedInvestment: React.Dispatch<
     React.SetStateAction<Investment | null>
   >;
-}) {
+}
+
+const Map = forwardRef((props: Props, ref: any) => {
+  const {
+    investments,
+    mapPosition,
+    setMapPosition,
+    setSelectedInvestment,
+    handleInvestmentSelection,
+  } = props;
   // const mapPositionCenter = useSelector(selectMapPositionCenter);
   //   const editorData = useSelector(selectEditorData);
   //   const parcelLoading = useSelector(selectParcelLoading);
   //   const parcelSelected = useSelector(selectParcelData);
   //   const currentSelectionIndex = useSelector(selectCurrentlySelectedLayerIndex);
-  const mapRef = useRef(null);
+
   //   const zoomToCoords = useSelector(selectZoomToCoords);
 
   //   useEffect(() => {
@@ -93,7 +98,7 @@ function Map({
   return (
     <div className={styles.mapContainer}>
       <MapContainer
-        ref={mapRef}
+        ref={ref}
         className={styles.map}
         center={mapPosition}
         zoom={15}
@@ -102,7 +107,8 @@ function Map({
         scrollWheelZoom={true}
       >
         <MapComponent
-          mapRef={mapRef}
+          mapRef={ref}
+          handleInvestmentSelection={handleInvestmentSelection}
           mapPosition={mapPosition}
           setMapPosition={setMapPosition}
           investments={investments}
@@ -113,7 +119,7 @@ function Map({
       {/* {parcelLoading && <Loading />} */}
     </div>
   );
-}
+});
 
 import React, { RefObject } from "react";
 import { get_parcel_number } from "../../utils/map_utils";
@@ -124,9 +130,11 @@ function MapComponent({
   mapPosition,
   setMapPosition,
   setSelectedInvestment,
+  handleInvestmentSelection,
 }: {
   mapRef: RefObject<any>;
   investments: Investment[];
+  handleInvestmentSelection: (investment: Investment) => void;
   mapPosition: number[];
   setMapPosition: React.Dispatch<React.SetStateAction<number[]>>;
   setSelectedInvestment: React.Dispatch<
@@ -212,13 +220,10 @@ function MapComponent({
         parcel_data.parcelNumber
       );
       if (selected_investment) {
-        setSelectedInvestment(selected_investment);
-        mapRef.current.setView(selected_investment.position, 19, {
-          animate: true,
-        });
+        handleInvestmentSelection(selected_investment);
       }
       console.log(parcel_data);
-    }
+    },
   });
 
   const map = useMap();

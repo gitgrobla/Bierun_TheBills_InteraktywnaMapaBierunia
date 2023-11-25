@@ -74,7 +74,7 @@ export const investments: Investment[] = [
     lookFrom: [1326.404612843529, 70.34743673964317, -319.4244152839161],
     lookAt: [1316.3375508153927, 48.58777741221098, -415.4734203843787],
     thumbnail:
-      "https://thumbs.rynekpierwotny.pl/3e79b87d:0G5gwjlwGj50Wt04Dj4wn1kxiWE/1500x0/filters:format(jpg)/offers/offer/None/main_image/modern-house.jpg",
+      "https://images.squarespace-cdn.com/content/v1/54fecc7ee4b0331c7905ca30/1695740149894-UMW1G0YFQ7WW7U0WKA7G/image-asset.jpeg?format=2500w",
     description: "Nowoczesne osiedle mieszkaniowe na południu Bierunia",
     address: "Bojszowska 79, 43-150 Bieruń",
   },

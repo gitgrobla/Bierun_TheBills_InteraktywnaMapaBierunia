@@ -46,6 +46,12 @@ const redIcon = new Icon({
   iconAnchor: [16, 32],
 });
 
+const educationIcon = new Icon({
+  iconUrl: "/svg/PinZlobekEducation.svg",
+  iconSize: [32, 32],
+  iconAnchor: [16, 32],
+});
+
 
 interface Props {
   investments: Investment[];
@@ -284,9 +290,17 @@ function MapComponent({
           return <Polygon positions={layer.polygon} color={layer.color} />;
         })} */}
 
-      {investments.map((investment) => (
+      {investments.filter((investment) => investment.id != 1).
+      
+      map((investment) => (
         <Marker icon={redIcon} position={investment.position}  />
       ))}
+
+      {investments.filter((investment) => investment.id == 1).
+        map((investment) => (
+        <Marker icon={educationIcon} position={investment.position}  />
+      ))}
+      
     </>
   );
 }

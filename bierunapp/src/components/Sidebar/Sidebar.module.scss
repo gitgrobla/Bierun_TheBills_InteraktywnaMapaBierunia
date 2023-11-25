@@ -144,6 +144,7 @@ $sidebar_height: calc(100vh - $navbar_height);
 .singleInvestment {
   display: flex;
   position: relative;
+  animation: fadeIn 0.2s ease-in-out;
   .exit {
     position: absolute;
     top: 0;
@@ -182,5 +183,25 @@ $sidebar_height: calc(100vh - $navbar_height);
       padding: 0.5rem 1rem;
       font-weight: 600;
     }
+  }
+}
+
+
+.nondrag{
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

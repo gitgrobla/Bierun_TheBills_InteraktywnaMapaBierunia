@@ -14,7 +14,7 @@ function SingleInvestment({
         src="/svg/expand_less_FILL1_wght400_GRAD0_opsz24.svg"
       />
      
-        <img src='/zlobek_mockup.png' />
+        <img className={styles.nondrag} src='/zlobek_mockup.png' />
 
    
       <div className={styles.buttons}>

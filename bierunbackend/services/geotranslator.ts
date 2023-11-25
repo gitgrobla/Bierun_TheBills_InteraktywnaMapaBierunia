@@ -28,47 +28,8 @@ function getParsedFormat(formatName: string) {
     return ESPG4326
 }
 
-function calculatePolygonCenter(coordinates: number[][]): number[] {
-    const totalPoints = coordinates.length;
-  
-    let sumX = 0;
-    let sumY = 0;
-  
-    for (const [x, y] of coordinates) {
-      sumX += x;
-      sumY += y;
-    }
 
-    const avgX = sumX / totalPoints;
-    const avgY = sumY / totalPoints;
-  
-    return [avgY, avgX];
-  }
-
-  function calculatePolygonBounds(coordinates: number[][]): number[] {
-    let minX = Infinity;
-    let minY = Infinity;
-    let maxX = -Infinity;
-    let maxY = -Infinity;
-  
-    for (const [y, x] of coordinates) {
-      minX = Math.min(minX, x);
-      minY = Math.min(minY, y);
-      maxX = Math.max(maxX, x);
-      maxY = Math.max(maxY, y);
-    }
-
-    const reductionX = (maxX - minX) * 0.2;
-    const reductionY = (maxY - minY) * 0.2;
-
-    minX += reductionX;
-    minY += reductionY;
-    maxX -= reductionX;
-    maxY -= reductionY;
-
-    return [minX, minY, maxX, maxY];
-  }
 
 export {
-    transformCoordinates, ESPG4326, ESPG2180, getParsedFormat, calculatePolygonCenter, calculatePolygonBounds
+    transformCoordinates, ESPG4326, ESPG2180, getParsedFormat
 }

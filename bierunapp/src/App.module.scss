@@ -10,19 +10,23 @@ html {
   display: flex;
 }
 
+$rest_width: 100%;
+
 .canvas_container {
-  width: 100vw;
+  width: calc(100vw - $sidebar_width);
   height: 100vh;
   position: absolute;
   animation: fadeIn 0.1s ease-in-out;
+  right: 0;
 }
 
 .map_container {
-  width: 100vw;
+  width: calc(100vw - $sidebar_width);
   height: 100vh;
   position: absolute;
   z-index: 2;
   animation: fadeIn 0.1s ease-in-out;
+  right: 0;
 }
 
 .non {

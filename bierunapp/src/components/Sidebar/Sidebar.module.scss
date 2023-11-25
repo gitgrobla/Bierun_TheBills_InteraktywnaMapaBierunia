@@ -6,7 +6,7 @@ $sidebar_height: calc(100vh - $navbar_height);
   margin-top: $navbar_height;
   height: $sidebar_height;
 
-  width: 0vw;
+  width: $sidebar_width;
   //   width: 25vw;
   box-sizing: border-box;
   top: $navbar_height;
@@ -62,8 +62,6 @@ $sidebar_height: calc(100vh - $navbar_height);
   // animation-name: sidebarAnimation;
   // animation-duration: 0.2s;
   // animation-fill-mode: forwards;
-  width: 30vw;
-  min-width: 400px;
 }
 
 .list_holder {
@@ -139,6 +137,36 @@ $sidebar_height: calc(100vh - $navbar_height);
       flex-direction: row;
       align-items: center;
       gap: 0.75rem;
+    }
+  }
+}
+
+.singleInvestment {
+  display: flex;
+  position: relative;
+  .exit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.2rem 0.5rem;
+  .buttons {
+    display: flex;
+    gap: 1rem;
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      border-radius: 1rem;
+      background-color: $primary;
+      color: $text;
+      padding: 0.5rem 1rem;
+      font-weight: 600;
     }
   }
 }

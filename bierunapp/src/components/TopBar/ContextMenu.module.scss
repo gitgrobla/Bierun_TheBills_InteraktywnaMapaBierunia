@@ -1,83 +1,76 @@
 @import "../../variables.scss";
 
-$context_menu_height: 80px;
-$context_menu_width: calc(4*$context_menu_height);
+$context_menu_height: 7rem;
+$context_menu_width: calc(5 * $context_menu_height);
 
-.contextMenu.hidden{
-    display: none;
+.contextMenu.hidden {
+  display: none;
 }
 
+.contextMenu {
+  position: absolute;
+  top: $navbar_height;
+  left: calc((100vw - $context_menu_width) / 2);
+  right: calc;
 
+  height: $context_menu_height;
+  width: $context_menu_width;
+  background-color: $secondary;
+  border-radius: 0 0 15px 15px;
+  z-index: 200;
+  font-size: $font-size-small;
+  display: flex;
 
-.contextMenu{
-    position: absolute;
-    top: $navbar_height;
-    left: calc( (100vw - $context_menu_width)/2  ) ;
-    right: calc;
-
-    height: $context_menu_height;
-    width: $context_menu_width;
-    background-color: $secondary;
-    border-radius: 0 0 15px 15px;
-    z-index: 200;
-    font-size: $font-size-small;
+  div {
+    width: 25%;
+    border-bottom: 3px solid $primary;
+    border-left: 3px solid $primary;
+    size: $font-size-small;
     display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 5px;
+    padding-top: 10px;
+    text-align: center;
+    font-size: 0.9rem;
 
-    div{
-        width: 25%;
-        border-bottom: 3px solid $primary;
-        border-left: 3px solid $primary;
-        size: $font-size-small;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        padding-bottom: 5px;
-        padding-top:10px;
-        text-align: center;
-
-        img{
-
-            width: 30px;
-            height: 30px;
-        }
-
-        
+    img {
+      width: 30px;
+      height: 30px;
     }
+  }
 
-    :nth-child(1){
-        border-radius: 0 0 0 15px;
-    }
-    :nth-child(4){
-        border-radius: 0 0 15px 0;
-        border-right: 2px solid $primary;
-    }
-
-
+  :nth-child(1) {
+    border-radius: 0 0 0 15px;
+  }
+  :nth-child(4) {
+    border-radius: 0 0 15px 0;
+    border-right: 2px solid $primary;
+  }
 }
 
 $circle_width: 30px;
 
+.hideCircle {
+  box-sizing: border-box;
+  position: absolute;
+  top: calc($navbar_height + $context_menu_height - ($circle_width/2));
+  left: calc((100vw - $circle_width) / 2);
+  width: $circle_width;
+  height: $circle_width;
+  z-index: 100;
+  background-color: $secondary;
+  border: 3px solid $primary;
+  border-radius: 50%;
 
-.hideCircle{
-    box-sizing: border-box;
-    position: absolute;
-    top: calc($navbar_height + $context_menu_height - ($circle_width/2));
-    left: calc( (100vw - $circle_width)/2);
-    width: $circle_width;
-    height: $circle_width;
-    z-index: 100;
-    background-color: $secondary;
-    border: 3px solid $primary;
-    border-radius: 50%;
-
-    img{
-        position: relative;
-        top: 20%;
-    }
+  img {
+    position: relative;
+    top: 20%;
+  }
 }
 
-.hideCircle.hidden{
-    z-index: -100;
-    top: calc($navbar_height - ($circle_width/2));
+.hideCircle.hidden {
+  z-index: -100;
+  top: calc($navbar_height - ($circle_width/2));
 }

@@ -4,6 +4,7 @@ import classnames from "classnames";
 import { Investment } from "../../datasets/investments";
 import InvestmentList from "./InvestmentsList";
 import Toggler from "./Toggler";
+import SingleInvestment from "./SingleInvestment";
 
 function Sidebar({
   isInvestmentSelected,
@@ -39,11 +40,10 @@ function Sidebar({
       {!isInvestmentSelected ? (
         <InvestmentList handleInvestmentSelection={handleInvestmentSelection} />
       ) : (
-        <>
-          {" "}
-          <button onClick={handleToggleID}>{!TD ? "[]" : "X"}</button>
-          <button onClick={unselectInvestment}>X</button>
-        </>
+        <SingleInvestment
+          handleToggleID={handleToggleID}
+          unselectInvestment={unselectInvestment}
+        />
       )}
     </div>
   );

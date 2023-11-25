@@ -13,7 +13,10 @@ function SingleInvestment({
         className={styles.exit}
         src="/svg/expand_less_FILL1_wght400_GRAD0_opsz24.svg"
       />
-      <div></div>
+     
+        <img src='/zlobek_mockup.png' />
+
+   
       <div className={styles.buttons}>
         <div className={styles.button}>
           <img src="/svg/change_circle_FILL1_wght400_GRAD0_opsz24.svg" />

@@ -16,8 +16,6 @@ interface Coords {
 }
 
 function App() {
-  // const obj = useLoader(OBJLoader, "/Bierun003.obj");
-  //  const obj = useLoader(FBXLoader, "/Bierun001.fbx");
   const cameraRef = useRef<any>(null);
   const [mapPosition, setMapPosition] = useState([
     50.09324438901613, 19.09179381393147,
@@ -31,6 +29,7 @@ function App() {
   const isInvestmentSelected = selectedInvestment !== null;
 
   const unselectInvestment = () => {
+    settd(false);
     setSelectedInvestment(null);
   };
 
@@ -44,10 +43,19 @@ function App() {
   const [td, settd] = useState(false);
 
   const teleportCamera = () => {
+    if (!selectedInvestment) return;
     console.log(cameraRef.current);
-    cameraRef.current?.position.set(-1000, 10, 10);
+    cameraRef.current?.position.set(
+      selectedInvestment.lookFrom[0],
+      selectedInvestment.lookFrom[1],
+      selectedInvestment.lookFrom[2]
+    );
     cameraRef.current?.updateMatrixWorld();
-    setCoords({ x: -1000, y: 10, z: 0 });
+    setCoords({
+      x: selectedInvestment.lookAt[0],
+      y: selectedInvestment.lookAt[1],
+      z: selectedInvestment.lookAt[2],
+    });
   };
 
   const handleToggleTD = () => {
@@ -55,6 +63,7 @@ function App() {
       settd(false);
     } else {
       settd(true);
+      teleportCamera();
     }
   };
 
@@ -83,7 +92,7 @@ function App() {
         <ModelViewer
           teleportCamera={teleportCamera}
           ref={cameraRef}
-          fbxPath="/bierun008.fbx"
+          fbxPath="/NurserySchool.fbx"
           {...coords}
         />
       </div>

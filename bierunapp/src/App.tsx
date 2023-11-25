@@ -21,6 +21,13 @@ import Map from "./components/Map/Map";
 import Box from "./Box";
 import { investments, Investment } from "./datasets/investments";
 import Sidebar from "./components/Sidebar/Sidebar";
+import ModelViewer from "./ModelViewer";
+
+interface Coords {
+  x: number;
+  y: number;
+  z: number;
+}
 
 function App() {
   // const obj = useLoader(OBJLoader, "/Bierun003.obj");
@@ -31,6 +38,8 @@ function App() {
   const [mapPosition, setMapPosition] = useState([
     50.09324438901613, 19.09179381393147,
   ]);
+
+  const [coords, setCoords] = useState<Coords>({ x: 0, y: 0, z: 0 });
 
   const [selectedInvestment, setSelectedInvestment] =
     useState<Investment | null>(null);
@@ -67,20 +76,16 @@ function App() {
           investments={investments}
         />
       </div> */}
+      <div
+        style={{
+          position: "absolute",
+          zIndex: 100,
+        }}
+      >
+        <button onClick={() => setCoords({ x: 0, y: 1000, z: 0 })}>cipa</button>
+      </div>
       <div className={styles.canvas_container}>
-        <Canvas shadows onMouseDown={handleMouseDown}>
-          <PerspectiveCamera
-            ref={cameraRef}
-            makeDefault
-            position={[0, 0, 500]}
-            near={0.1}
-            far={10000}
-          />
-          <ambientLight intensity={1} />
-          <primitive object={obj} />
-          <primitive object={guideline} />
-          <OrbitControls />
-        </Canvas>
+        <ModelViewer fbxPath="/bierun008.fbx" {...coords} />
       </div>
     </div>
   );

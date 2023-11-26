@@ -46,7 +46,7 @@ const ModelViewer = forwardRef((props: Props, ref: any) => {
   return (
     <Canvas shadows>
       <PerspectiveCamera makeDefault ref={ref} near={0.1} far={10000} />
-      <ambientLight intensity={1} />
+      <ambientLight intensity={4} />
       <mesh>
         <primitive
           onClick={(e: any) => {

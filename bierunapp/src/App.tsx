@@ -103,7 +103,7 @@ function App() {
         <ModelViewer
           teleportCamera={teleportCamera}
           ref={cameraRef}
-          fbxPath="/NurserySchool.fbx"
+          fbxPath="/bierun020.fbx"
           {...coords}
         />
       </div>

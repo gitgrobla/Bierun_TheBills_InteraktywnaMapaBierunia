@@ -29,7 +29,7 @@ function InvestmentCard({
         <div className={styles.subinfo}>
           <div>{investment.address.split(",")[0]}</div>
           <div>
-            <Rating rating={25} />
+            <Rating rating={investment.rating} />
           </div>
         </div>
       </div>

@@ -30,6 +30,7 @@ export interface Investment {
   author: Author;
   category: Category;
   status: Status;
+  rating: number;
 }
 
 export const investments: Investment[] = [
@@ -47,6 +48,7 @@ export const investments: Investment[] = [
       "https://www.bierun.pl/assets/pics/aktualnosci/2023-11/392888306_1189794271935999_1713115306181596185_n.jpg",
     description: `Miasto Bieruń otrzymało dofinansowanie w ramach programu "MALUCH+" 2022-2029 na budowę gminnego żłobka przy ul. Chemików 39 w Bieruniu. Dofinansowanie w wysokości 1 872 223,05 zł pochodzi ze środków KPO w wysokości 1 649 652,00 zł oraz środków budżetu państwa w wysokości 222 571,05 zł.`,
     address: `Chemików 39, 43-150 Bieruń`,
+    rating: 89
   },
   {
     id: 2,
@@ -62,6 +64,7 @@ export const investments: Investment[] = [
       "https://www.bierun.pl/assets/pics/aktualnosci/2021-06/rynek_zegar.png",
     description: "Rewitalizacja parku miejskiego w Bieruniu",
     address: "Rynek 9, 43-150 Bieruń",
+    rating: 101
   },
   {
     id: 3,
@@ -77,6 +80,7 @@ export const investments: Investment[] = [
       "https://images.squarespace-cdn.com/content/v1/54fecc7ee4b0331c7905ca30/1695740149894-UMW1G0YFQ7WW7U0WKA7G/image-asset.jpeg?format=2500w",
     description: "Nowoczesne osiedle mieszkaniowe na południu Bierunia",
     address: "Bojszowska 79, 43-150 Bieruń",
+    rating: 54
   },
   {
     id: 4,
@@ -92,6 +96,7 @@ export const investments: Investment[] = [
       "https://upload.wikimedia.org/wikipedia/commons/4/4e/Algeco_modular_office_building.jpg",
     description: "Kompleks biurowy w Bieruniu",
     address: "Szynowa 20, 43-150 Bieruń",
+    rating: 42
   },
 ];
 

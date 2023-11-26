@@ -18,12 +18,13 @@ import {
   MapControls,
   Stage,
   OrthographicCamera,
+  Sky,
 } from "@react-three/drei";
 
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 import { useLoader } from "@react-three/fiber";
 import * as THREE from "three";
-import { AxesHelper, GridHelper } from "three";
+import { AxesHelper, CubeTextureLoader, GridHelper } from "three";
 
 import styles from "./App.module.scss";
 
@@ -37,6 +38,8 @@ type Props = {
 
 const ModelViewer = forwardRef((props: Props, ref: any) => {
   const { x, y, z } = props;
+
+
 
   const obj = useLoader(FBXLoader, props.fbxPath);
   console.log(ref);
@@ -55,6 +58,13 @@ const ModelViewer = forwardRef((props: Props, ref: any) => {
         <primitive object={new AxesHelper(500)} />
       </mesh>
       <MapControls makeDefault target={new THREE.Vector3(x, y, z)} />
+      <Sky
+             distance={450000}
+             sunPosition={[5, 1, 8]}
+             inclination={0}
+             azimuth={0}
+             {...props}
+         />
     </Canvas>
   );
 });
